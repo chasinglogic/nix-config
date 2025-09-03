@@ -51,13 +51,119 @@
     homeDirectory = homeDirectory;
   };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [
+    # Encryption
+    sops
+    age
+    cosign
+
+    # Kubernetes
+    kubectl
+    # Not supported on M series Macs atm and I don't really use it so commented out for
+    # now
+    # helm
+    kube-capacity
+    kind
+
+    # Container security scanning tools
+    grype
+    syft
+
+    # Still running some talos clusters
+    talosctl
+
+    # Tooling for shell scripts
+    shellcheck
+    shfmt
+
+    # Load testing tool
+    oha
+
+    # For building and publishing my blog
+    hugo
+
+    # Command line speed tester
+    hyperfine
+
+    gotools
+    go-migrate
+    goreleaser
+    golangci-lint
+
+    just
+    yq
+    grpcurl
+    zenith
+
+    python
+    ruby
+    elixir
+    rustc
+    cargo
+
+    node
+    nodePackages.prettier
+    nodePackages.eslint
+    nodePackages.pnpm
+
+    # IaC tools
+    awscli2
+    google-cloud-sdk
+    terragrunt
+    opentofu
+    pulumi
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+
+  # General dev tooling
+  programs.git = {
+    enable = true;
+    delta.enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.ripgrep.enable = true;
+  programs.fd.enable = true;
+  programs.fzf.enable = true;
+  programs.bat.enable = true;
+  programs.jq.enable = true;
+
+  # Python tooling
+  programs.uv.enable = true;
+  programs.ruff = {
+    enable = true;
+    settings = {
+      line-length = 100;
+      per-file-ignores = {"__init__.py" = ["F401"];};
+      lint = {
+        select = ["E4" "E7" "E9" "F"];
+        ignore = [];
+      };
+    };
+  };
+
+  # Go tooling
+  programs.go = {
+    enable = true;
+    # This is relative to $HOME
+    goPath = "Code/go";
+    # This is relative to goPath
+    goBin = "bin";
+  };
+
+  # Shell environment
+  # programs.fish = {
+  #   enable = true;
+  # };
+  programs.direnv = {
+    enable = true;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
