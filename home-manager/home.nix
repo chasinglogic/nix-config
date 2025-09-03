@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  homeDirectory,
   ...
 }: {
   # You can import other home-manager modules here
@@ -45,10 +46,9 @@
     };
   };
 
-  # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "chasinglogic";
+    homeDirectory = homeDirectory;
   };
 
   # Add stuff for your user as you see fit:
