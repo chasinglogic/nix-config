@@ -67,27 +67,40 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # FIXME: Add the rest of your current configuration
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true; 
+  boot.loader.efi.canTouchEfiVariables = true;
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # TODO: Set your hostname
   networking.hostName = "galactica";
+  networking.networkmanager.enable = true;   
 
-  # TODO: Configure your system-wide user settings (groups, etc), add more users as needed.
+  services.xserver.enable = true;
+
+  services.displayManager.sddm.enable = true; 
+  services.displayManager.sddm.wayland.enable = true; 
+  services.desktopManager.plasma6.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+  # Enable touchpad support (enabled default in most desktopManager).
+  services.libinput.enable = true;
+
   users.users = {
     # FIXME: Replace with your username
     chasinglogic = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "correcthorsebatterystaple";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "networkmanager" "docker"];
     };
   };
+
+  programs.firefox.enable = true;
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.
@@ -103,5 +116,5 @@
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
+  system.stateVersion = "25.05";
 }
