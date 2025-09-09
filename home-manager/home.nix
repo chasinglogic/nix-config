@@ -6,6 +6,7 @@
   lib,
   config,
   pkgs,
+  dfm,
   homeDirectory,
   ...
 }: {
@@ -20,6 +21,11 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
+
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = ["nix-command" "flakes"];
+  };
 
   nixpkgs = {
     # You can add overlays here
@@ -51,67 +57,73 @@
     homeDirectory = homeDirectory;
   };
 
-  home.packages = with pkgs; [
+  home.packages = [
     # Encryption
-    sops
-    age
-    cosign
+    pkgs.sops
+    pkgs.age
+    pkgs.cosign
 
     # Kubernetes
-    kubectl
+    pkgs.kubectl
     # Not supported on M series Macs atm and I don't really use it so commented out for
     # now
     # helm
-    kube-capacity
-    kind
+    pkgs.kube-capacity
+    pkgs.kind
 
     # Container security scanning tools
-    grype
-    syft
+    pkgs.grype
+    pkgs.syft
 
     # Still running some talos clusters
-    talosctl
+    pkgs.talosctl
 
     # Tooling for shell scripts
-    shellcheck
-    shfmt
+    pkgs.shellcheck
+    pkgs.shfmt
 
     # Load testing tool
-    oha
+    pkgs.oha
 
     # For building and publishing my blog
-    hugo
+    pkgs.hugo
 
     # Command line speed tester
-    hyperfine
+    pkgs.hyperfine
 
-    gotools
-    go-migrate
-    goreleaser
-    golangci-lint
+    pkgs.gotools
+    pkgs.go-migrate
+    pkgs.goreleaser
+    pkgs.golangci-lint
 
-    just
-    yq
-    grpcurl
-    zenith
+    pkgs.just
+    pkgs.yq
+    pkgs.grpcurl
+    pkgs.zenith
+    pkgs.hwatch
 
-    python
-    ruby
-    elixir
-    rustc
-    cargo
+    pkgs.python3
+    pkgs.elixir
+    pkgs.rustc
+    pkgs.cargo
 
-    node
-    nodePackages.prettier
-    nodePackages.eslint
-    nodePackages.pnpm
+    # AI stuff
+    # Collides with prettier
+    # pkgs.gemini-cli
+
+    pkgs.nodejs
+    pkgs.nodePackages.prettier
+    pkgs.nodePackages.eslint
+    pkgs.nodePackages.pnpm
 
     # IaC tools
-    awscli2
-    google-cloud-sdk
-    terragrunt
-    opentofu
-    pulumi
+    pkgs.awscli2
+    pkgs.google-cloud-sdk
+    pkgs.terragrunt
+    pkgs.opentofu
+    pkgs.pulumi
+
+    # dfm
   ];
 
   # Enable home-manager and git
@@ -158,9 +170,9 @@
   };
 
   # Shell environment
-  # programs.fish = {
-  #   enable = true;
-  # };
+  programs.fish = {
+    enable = true;
+  };
   programs.direnv = {
     enable = true;
   };

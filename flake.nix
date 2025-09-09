@@ -9,12 +9,15 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    dfm.url = "github:chasinglogic/dfm/main";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    dfm,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -78,6 +81,7 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           homeDirectory = "/Users/chasinglogic";
+          dfm = inputs.dfm.packages.aarch64-darwin.default;
         };
         modules = [
           ./home-manager/home.nix
