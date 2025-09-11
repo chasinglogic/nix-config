@@ -78,14 +78,18 @@
 
   services.xserver.enable = true;
 
-  services.displayManager.sddm.enable = true; 
-  services.displayManager.sddm.wayland.enable = true; 
-  services.desktopManager.plasma6.enable = true;
+  services.xserver.displayManager.gdm.enable = true; 
+  services.xserver.desktopManager.gnome.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    gnome-tweaks
+  ];
 
   services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
