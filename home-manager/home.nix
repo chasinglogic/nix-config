@@ -7,6 +7,7 @@
   config,
   pkgs,
   dfm,
+  projector,
   homeDirectory,
   ...
 }: {
@@ -125,6 +126,7 @@
     pkgs.pulumi
 
     dfm
+    projector
   ];
 
   # Enable home-manager and git

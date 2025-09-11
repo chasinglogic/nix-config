@@ -11,6 +11,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     dfm.url = "github:chasinglogic/dfm/main";
+    projector.url = "github:chasinglogic/projector/master";
   };
 
   outputs = {
@@ -18,6 +19,7 @@
     nixpkgs,
     home-manager,
     dfm,
+    projector,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -69,6 +71,7 @@
           inherit inputs outputs;
           homeDirectory = "/home/chasinglogic";
           dfm = dfm.defaultPackage.x86_64-linux;
+          projector = projector.defaultPackage.x86_64-linux;
         };
         modules = [
           ./home-manager/home.nix
@@ -80,7 +83,8 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           homeDirectory = "/Users/chasinglogic";
-          dfm = inputs.dfm.packages.aarch64-darwin.default;
+          dfm = dfm.defaultPackage.aarch64-darwin;
+          projector = projector.defaultPackage.aarch64-darwin;
         };
         modules = [
           ./home-manager/home.nix
