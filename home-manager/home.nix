@@ -108,8 +108,7 @@
     pkgs.cargo
 
     # AI stuff
-    # Collides with prettier
-    # pkgs.gemini-cli
+    pkgs.unstable.gemini-cli
 
     pkgs.nodejs
     pkgs.nodePackages.prettier
