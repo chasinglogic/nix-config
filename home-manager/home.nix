@@ -106,6 +106,7 @@
     pkgs.elixir
     pkgs.rustc
     pkgs.cargo
+    pkgs.clang
 
     # AI stuff
     pkgs.unstable.gemini-cli
