@@ -68,17 +68,17 @@
   };
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true; 
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # Use lts kernel.
   boot.kernelPackages = pkgs.linuxKernel.packageAliases.linux_default;
 
   networking.hostName = "galactica";
-  networking.networkmanager.enable = true;   
+  networking.networkmanager.enable = true;
 
   services.xserver.enable = true;
 
-  services.displayManager.gdm.enable = true; 
+  services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
   environment.systemPackages = with pkgs; [

@@ -184,7 +184,7 @@
   dconf.enable = true;
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
-      xkb-options = [ "ctrl:nocaps" "lv3:ralt_alt" ];
+      xkb-options = ["ctrl:nocaps" "lv3:ralt_alt"];
     };
   };
 
