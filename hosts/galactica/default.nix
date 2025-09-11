@@ -70,8 +70,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true; 
   boot.loader.efi.canTouchEfiVariables = true;
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Use lts kernel.
+  boot.kernelPackages = pkgs.linuxKernel.packageAliases.linux_default;
 
   networking.hostName = "galactica";
   networking.networkmanager.enable = true;   
