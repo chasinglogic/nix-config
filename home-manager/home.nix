@@ -103,6 +103,7 @@
     pkgs.zenith
     pkgs.hwatch
     pkgs.zellij
+    pkgs.gh
 
     pkgs.python3
     pkgs.elixir
