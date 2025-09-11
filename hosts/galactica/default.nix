@@ -83,6 +83,7 @@
 
   environment.systemPackages = with pkgs; [
     gnome-tweaks
+    unzip
   ];
 
   services.pipewire = {
