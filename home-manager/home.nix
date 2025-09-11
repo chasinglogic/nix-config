@@ -101,6 +101,7 @@
     pkgs.grpcurl
     pkgs.zenith
     pkgs.hwatch
+    pkgs.zellij
 
     pkgs.python3
     pkgs.elixir
