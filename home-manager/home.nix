@@ -123,7 +123,7 @@
     pkgs.opentofu
     pkgs.pulumi
 
-    # dfm
+    dfm
   ];
 
   # Enable home-manager and git
@@ -145,7 +145,7 @@
   programs.fzf.enable = true;
   programs.bat.enable = true;
   programs.jq.enable = true;
-  
+
   programs.ghostty.enable = true;
 
   # Python tooling

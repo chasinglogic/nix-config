@@ -68,6 +68,7 @@
         extraSpecialArgs = {
           inherit inputs outputs;
           homeDirectory = "/home/chasinglogic";
+          dfm = dfm.defaultPackage.x86_64-linux;
         };
         modules = [
           ./home-manager/home.nix
