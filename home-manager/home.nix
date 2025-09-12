@@ -104,6 +104,8 @@
     pkgs.hwatch
     pkgs.zellij
     pkgs.gh
+    # Still use this for work settings when I have to deal with python especially.
+    pkgs.mise
 
     pkgs.python3
     pkgs.elixir
@@ -149,8 +151,6 @@
   programs.fzf.enable = true;
   programs.bat.enable = true;
   programs.jq.enable = true;
-
-  programs.ghostty.enable = true;
 
   # Python tooling
   programs.uv.enable = true;
