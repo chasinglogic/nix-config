@@ -1,0 +1,12 @@
+code_dirs:
+  - ~/Code
+  - ~/Work
+  - ~/kde/src
+  - ~/.config/dfm/profiles
+
+excludes:
+  - go/pkg
+  - go/src
+
+includes:
+  - go/src/github\.com/chasinglogic

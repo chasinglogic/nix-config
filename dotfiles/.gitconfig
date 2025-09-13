@@ -1,0 +1,116 @@
+[user]
+    email = mathew@chasinglogic.io
+    name = Mathew Robinson
+
+[pull]
+    default = current
+    ff = only
+	rebase = true
+
+[grep]
+    patternType = perl
+
+[includeIf "gitdir:~/Work/"]
+  path = ~/.work.gitconfig
+
+[core]
+    excludesfile = ~/.gitignore_global
+	pager = delta
+
+[add]
+    verbose = true
+
+[commit]
+    verbose = true
+    gpgSign = false
+
+[pretty]
+    olcolor = %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>
+
+[alias]
+    su = submodule update --init --recursive
+    unstage = reset HEAD --
+    amend = commit --amend --no-edit
+    vader = push --force-with-lease
+    cont = rebase --continue
+    contains = branch -a --contains
+    where = branch -a --contains
+    whereis = branch -a --contains
+    cp = cherry-pick
+    l = log --graph --date-order  --pretty=olcolor
+    ru = remote update
+    ck = checkout
+    st = status
+    a = add
+    c = commit
+    r = rebase
+    rc = rebase --continue
+    f = fetch
+    pl = pull
+    p = push
+    rh = rebase origin/HEAD
+    rhi = rebase -i origin/HEAD
+    b = branch
+    update = !git add . && git commit --amend --no-edit && git push --force-with-lease
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[pager]
+    branch = false
+
+[diff]
+    renameLimit = 4487
+    colorMoved = true
+    algorithm = histogram
+	mnemonicPrefix = true
+	renames = true
+
+[branch]
+    autosetupmerge = true
+    autosetuprebase = remote
+	sort = -committerdate
+
+[rebase]
+    autostash = true
+    autosquash = true
+	updateRefs = true
+
+[push]
+    default = current
+	autoSetupRemote = true
+	followTags = true
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[url "https://invent.kde.org/"]
+    insteadOf = kde:
+
+[url "ssh://git@invent.kde.org/"]
+    pushInsteadOf = kde:
+
+[merge]
+    conflictstyle = zdiff3
+    ff = only
+[tag]
+	sort = version:refname
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+
+[include]
+    path = ~/.gitconfig_local
+
+

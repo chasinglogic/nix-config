@@ -1,0 +1,20 @@
+---
+prompt_for_commit_message: true
+
+mappings:
+  - match: '.config/nvim/snippets'
+    link_as_dir: true
+  - match: ".*gpg-agent.conf.darwin"
+    dest: ~/.gnupg/gpg-agent.conf
+    target_os: Darwin
+  - match: "playbooks/workstation"
+    link_as_dir: true
+  - match: ".config/ghostty/macos-config"
+    target_os: Linux
+    skip: true
+
+
+modules:
+  # My not-so-secret secrets
+  - repository: git@github.com:chasinglogic/secrets.git
+    name: secrets

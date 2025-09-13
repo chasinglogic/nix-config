@@ -1,0 +1,10 @@
+[Unit]
+Description=Auto Backup on schedule
+
+[Timer]
+OnBootSec=60min
+OnUnitActiveSec=6hour
+Unit=auto-backup.service
+
+[Install]
+WantedBy=timers.target

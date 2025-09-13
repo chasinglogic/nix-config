@@ -1,0 +1,4 @@
+# vi: ft=swayconfig
+
+exec_always 'pkill pipewire; pipewire'
+exec_always 'pkill mako; mako'
