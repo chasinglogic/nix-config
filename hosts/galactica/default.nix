@@ -22,6 +22,8 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+
+    ../common/users/chasinglogic.nix
   ];
 
   nixpkgs = {
@@ -47,6 +49,8 @@
       allowUnfree = true;
     };
   };
+
+  security.sudo.wheelNeedsPassword = false;
 
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
@@ -99,17 +103,6 @@
     # Add any missing dynamic libraries for unpackaged programs
     # here, NOT in environment.systemPackages
   ];
-
-  users.users = {
-    # FIXME: Replace with your username
-    chasinglogic = {
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      extraGroups = ["wheel" "networkmanager" "docker"];
-    };
-  };
 
   programs.firefox.enable = true;
 
