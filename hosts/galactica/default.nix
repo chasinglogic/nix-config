@@ -86,6 +86,7 @@
   services.desktopManager.gnome.enable = true;
 
   environment.systemPackages = with pkgs; [
+    wl-clipboard
     gnome-tweaks
     unzip
   ];
