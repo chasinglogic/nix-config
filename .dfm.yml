@@ -1,4 +1,5 @@
 ---
+root_dir: dotfiles
 prompt_for_commit_message: true
 
 mappings:
