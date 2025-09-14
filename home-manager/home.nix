@@ -170,10 +170,6 @@
   # Go tooling
   programs.go = {
     enable = true;
-    # This is relative to $HOME
-    goPath = "Code/go";
-    # This is relative to goPath
-    goBin = "bin";
   };
 
   # Shell environment
