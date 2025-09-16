@@ -66,6 +66,7 @@
 
     # Kubernetes
     pkgs.kubectl
+    pkgs.k9s
     # Not supported on M series Macs atm and I don't really use it so commented out for
     # now
     # helm
@@ -178,16 +179,6 @@
   };
   programs.direnv = {
     enable = true;
-  };
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
-
-  dconf.enable = true;
-  dconf.settings = {
-    "org/gnome/desktop/input-sources" = {
-      xkb-options = ["ctrl:nocaps" "lv3:ralt_alt"];
-    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -75,6 +75,7 @@
         };
         modules = [
           ./home-manager/home.nix
+          ./home-manager/linux.nix
         ];
       };
 
