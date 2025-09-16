@@ -4,6 +4,8 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  programs.ghostty.enable = true;
+
   dconf.enable = true;
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
