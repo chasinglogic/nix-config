@@ -6,8 +6,6 @@
   lib,
   config,
   pkgs,
-  dfm,
-  projector,
   homeDirectory,
   ...
 }: {
@@ -138,8 +136,8 @@
     pkgs.stable.postgresql
     pkgs.dbeaver-bin
 
-    dfm
-    projector
+    pkgs.dfm
+    pkgs.projector
   ];
 
   # Enable home-manager
