@@ -34,7 +34,7 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      outputs.overlays.stable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -121,7 +121,7 @@
     pkgs.python3
 
     # AI stuff
-    pkgs.unstable.gemini-cli
+    pkgs.gemini-cli
 
     pkgs.nodejs
     pkgs.nodePackages.prettier
@@ -135,7 +135,7 @@
     pkgs.opentofu
     pkgs.pulumi
 
-    pkgs.postgresql
+    pkgs.stable.postgresql
     pkgs.dbeaver-bin
 
     dfm
@@ -154,7 +154,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    package = pkgs.unstable.neovim;
   };
 
   programs.ripgrep.enable = true;
