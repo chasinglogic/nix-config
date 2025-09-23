@@ -59,6 +59,9 @@
   };
 
   home.packages = [
+    pkgs.firefox
+    pkgs.google-chrome
+
     # Encryption
     pkgs.sops
     pkgs.age
@@ -139,7 +142,7 @@
     projector
   ];
 
-  # Enable home-manager and git
+  # Enable home-manager
   programs.home-manager.enable = true;
 
   # General dev tooling
@@ -151,6 +154,7 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    package = pkgs.unstable.neovim;
   };
 
   programs.ripgrep.enable = true;
