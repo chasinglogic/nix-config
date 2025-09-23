@@ -109,11 +109,13 @@
     # Still use this for work settings when I have to deal with python especially.
     pkgs.mise
 
-    pkgs.python3
     pkgs.elixir
     pkgs.rustc
     pkgs.cargo
     pkgs.clang
+
+    # Python Stuff
+    pkgs.python3
 
     # AI stuff
     pkgs.unstable.gemini-cli
@@ -129,6 +131,9 @@
     pkgs.terragrunt
     pkgs.opentofu
     pkgs.pulumi
+
+    pkgs.postgresql
+    pkgs.dbeaver-bin
 
     dfm
     projector
