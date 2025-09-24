@@ -24,6 +24,7 @@
     ./hardware-configuration.nix
 
     ../common/users/chasinglogic.nix
+    ../common/purposes/virt-host.nix
   ];
 
   nixpkgs = {
@@ -110,10 +111,8 @@
 
   programs.firefox.enable = false;
 
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
   services.openssh = {
-    enable = true;
+    enable = false;
     settings = {
       # Opinionated: forbid root login through SSH.
       PermitRootLogin = "no";
@@ -122,6 +121,22 @@
       PasswordAuthentication = false;
     };
   };
+
+  # Trying out the podman lifestyle for now.
+  # virtualisation.docker.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerSocket.enable = true;
+  };
+
+  virtualisation.libvirtd.enable = true;
+  # Enable TPM emulation
+  virtualisation.libvirtd.qemu = {
+    swtpm.enable = true;
+    ovmf.packages = [pkgs.OVMFFull.fd];
+  };
+  # Enable USB redirection
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
