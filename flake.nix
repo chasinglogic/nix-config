@@ -2,8 +2,8 @@
   description = "Chasinglogic's nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager/master";
@@ -16,7 +16,7 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
+    nixpkgs-stable,
     home-manager,
     dfm,
     projector,
@@ -54,7 +54,6 @@
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       "galactica" = nixpkgs.lib.nixosSystem {
-        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/galactica
@@ -67,7 +66,7 @@
     homeConfigurations = {
       # TODO: do I need this if I integrate home-manager with the nixos config?
       "chasinglogic@linux" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {
           inherit inputs outputs;
           homeDirectory = "/home/chasinglogic";
@@ -79,7 +78,7 @@
       };
 
       "chasinglogic@mac-arm" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-unstable.legacyPackages.aarch64-darwin;
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         extraSpecialArgs = {
           inherit inputs outputs;
           homeDirectory = "/Users/chasinglogic";
