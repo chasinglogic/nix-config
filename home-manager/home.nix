@@ -106,6 +106,7 @@
     pkgs.hwatch
     pkgs.zellij
     pkgs.gh
+    pkgs.act
     pkgs.git-filter-repo
     # Still use this for work settings when I have to deal with python especially.
     pkgs.mise
