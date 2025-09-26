@@ -11,6 +11,7 @@
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
       # TODO: read these from file
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtZidsnYj0vktdP1sPKqCno/mFNV6L5aSPxQiskITLT chasinglogic@galactica"
     ];
     extraGroups = [
       "wheel"

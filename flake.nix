@@ -59,6 +59,13 @@
           ./hosts/galactica
         ];
       };
+
+      "raza" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/raza
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint

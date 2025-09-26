@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   outputs,
@@ -132,15 +130,6 @@
     enable = true;
     dockerSocket.enable = true;
   };
-
-  virtualisation.libvirtd.enable = true;
-  # Enable TPM emulation
-  virtualisation.libvirtd.qemu = {
-    swtpm.enable = true;
-    ovmf.packages = [pkgs.OVMFFull.fd];
-  };
-  # Enable USB redirection
-  virtualisation.spiceUSBRedirection.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
