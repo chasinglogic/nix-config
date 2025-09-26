@@ -6,6 +6,7 @@ fmt:
 
 apply host="" user="":
     #!/usr/bin/env bash
+    set -e
 
     HOST={{host}}
     if [ -z "$HOST" ]; then
