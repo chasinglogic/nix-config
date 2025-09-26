@@ -90,6 +90,10 @@
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  services.flatpak.enable = true;
+  services.packagekit.enable = true;
+  services.fwupd.enable = true;
+
   environment.systemPackages = with pkgs; [
     wl-clipboard
     unzip
