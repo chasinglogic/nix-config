@@ -56,128 +56,12 @@
     homeDirectory = homeDirectory;
   };
 
-  home.packages = [
-    pkgs.firefox
-    pkgs.google-chrome
-
-    # Encryption
-    pkgs.sops
-    pkgs.age
-    pkgs.cosign
-
-    # Kubernetes
-    pkgs.kubectl
-    pkgs.k9s
-    # Not supported on M series Macs atm and I don't really use it so commented out for
-    # now
-    # helm
-    pkgs.kube-capacity
-    pkgs.kind
-
-    # Container security scanning tools
-    pkgs.grype
-    pkgs.syft
-
-    # Still running some talos clusters
-    pkgs.talosctl
-
-    # Tooling for shell scripts
-    pkgs.shellcheck
-    pkgs.shfmt
-
-    # Load testing tool
-    pkgs.oha
-
-    # For building and publishing my blog
-    pkgs.hugo
-
-    # Command line speed tester
-    pkgs.hyperfine
-
-    pkgs.gotools
-    pkgs.go-migrate
-    pkgs.goreleaser
-    pkgs.golangci-lint
-
-    pkgs.just
-    pkgs.yq
-    pkgs.grpcurl
-    pkgs.zenith
-    pkgs.hwatch
-    pkgs.zellij
-    pkgs.gh
-    pkgs.act
-    pkgs.git-filter-repo
-    # Still use this for work settings when I have to deal with python especially.
-    pkgs.mise
-
-    pkgs.elixir
-    pkgs.rustc
-    pkgs.cargo
-    pkgs.clang
-
-    # Python Stuff
-    pkgs.python3
-
-    # AI stuff
-    pkgs.gemini-cli
-
-    pkgs.nodejs
-    pkgs.nodePackages.prettier
-    pkgs.nodePackages.eslint
-    pkgs.nodePackages.pnpm
-
-    # IaC tools
-    pkgs.awscli2
-    pkgs.google-cloud-sdk
-    pkgs.terragrunt
-    pkgs.opentofu
-    pkgs.pulumi
-
-    pkgs.stable.postgresql
-    pkgs.dbeaver-bin
-
-    pkgs.dfm
-    pkgs.projector
-  ];
-
   # Enable home-manager
   programs.home-manager.enable = true;
-
-  # General dev tooling
-  programs.git = {
-    enable = true;
-    delta.enable = true;
-  };
 
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  };
-
-  programs.ripgrep.enable = true;
-  programs.fd.enable = true;
-  programs.fzf.enable = true;
-  programs.bat.enable = true;
-  programs.jq.enable = true;
-
-  # Python tooling
-  programs.uv.enable = true;
-  programs.ruff = {
-    enable = true;
-    settings = {
-      line-length = 100;
-      per-file-ignores = {"__init__.py" = ["F401"];};
-      lint = {
-        select = ["E4" "E7" "E9" "F"];
-        ignore = [];
-      };
-    };
-  };
-
-  # Go tooling
-  programs.go = {
-    enable = true;
   };
 
   # Shell environment
