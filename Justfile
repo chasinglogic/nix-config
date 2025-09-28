@@ -25,6 +25,7 @@ apply host="" user="":
         sudo nixos-rebuild switch --flake ".#$HOST"
     fi
 
+    echo "Doing home-manager switch."
     home-manager switch --flake ".#$USERNAME@$HOST"
 
 test host:
