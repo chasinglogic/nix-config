@@ -83,7 +83,6 @@
           ./home-manager/purposes/dev-machine.nix
           ./home-manager/purposes/dev-machine.linux.nix
           ./home-manager/purposes/work.nix
-          ./home-manager/purposes/gaming.nix
         ];
       };
 
