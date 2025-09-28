@@ -23,6 +23,7 @@
 
     ../common/users/chasinglogic.nix
     ../common/purposes/virt-host.nix
+    ../common/purposes/tailnet.nix
   ];
 
   nixpkgs = {

@@ -10,6 +10,8 @@
     ./hardware-configuration.nix
 
     ../common/purposes/virt-host.nix
+    ../common/purposes/tailnet.nix
+
     ../common/users/chasinglogic.nix
   ];
 
