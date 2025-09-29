@@ -32,6 +32,7 @@
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
+      trusted-users = ["root" "chasinglogic"];
       experimental-features = "nix-command flakes";
       flake-registry = "";
       nix-path = config.nix.nixPath;
@@ -40,7 +41,23 @@
 
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
+    distributedBuilds = true;
+    buildMachines = [
+      {
+        hostName = "raza.beefalo-drum.ts.net";
+        system = "x86_64-linux";
+        protocol = "ssh";
+        speedFactor = 5;
+        supportedFeatures = ["kvm"];
+      }
+      {
+        hostName = "rocinante.beefalo-drum.ts.net";
+        system = "x86_64-linux";
+        protocol = "ssh";
+        speedFactor = 5;
+        supportedFeatures = ["kvm"];
+      }
+    ];
   };
-
-
 }
