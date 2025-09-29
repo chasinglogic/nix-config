@@ -77,6 +77,7 @@
           ./common/purposes/virt-host.nix
           ./common/purposes/tailnet.nix
           ./common/purposes/server.nix
+          ./common/purposes/pihole.nix
 
           ./common/users/chasinglogic.nix
         ];
