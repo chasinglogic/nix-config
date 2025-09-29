@@ -28,6 +28,7 @@
     unzip
     neovim
     zenith
+    git
   ];
 
   nix = let
