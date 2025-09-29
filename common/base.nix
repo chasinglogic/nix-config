@@ -29,6 +29,7 @@
     neovim
     zenith
     git
+    dig
   ];
 
   nix = let
