@@ -57,6 +57,13 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/galactica
+
+          ./hosts/common/base.nix
+
+          ./hosts/common/users/chasinglogic.nix
+          ./hosts/common/purposes/virt-host.nix
+          ./hosts/common/purposes/tailnet.nix
+          ./hosts/common/purposes/gaming.nix
         ];
       };
 
@@ -64,6 +71,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/raza
+
+          ./hosts/common/base.nix
+
+          ./hosts/common/purposes/virt-host.nix
+          ./hosts/common/purposes/tailnet.nix
+          ./hosts/common/purposes/server.nix
+
+          ./hosts/common/users/chasinglogic.nix
         ];
       };
 
@@ -71,6 +86,14 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/rocinante
+
+          ./hosts/common/base.nix
+
+          ./hosts/common/purposes/virt-host.nix
+          ./hosts/common/purposes/tailnet.nix
+          ./hosts/common/purposes/server.nix
+
+          ./hosts/common/users/chasinglogic.nix
         ];
       };
     };

@@ -20,13 +20,6 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-
-    ../common/base.nix
-
-    ../common/users/chasinglogic.nix
-    ../common/purposes/virt-host.nix
-    ../common/purposes/tailnet.nix
-    ../common/purposes/gaming.nix
   ];
 
   nixpkgs = {

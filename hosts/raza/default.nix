@@ -1,14 +1,6 @@
 {outputs, ...}: {
   imports = [
     ./hardware-configuration.nix
-
-    ../common/base.nix
-
-    ../common/purposes/virt-host.nix
-    ../common/purposes/tailnet.nix
-    ../common/purposes/server.nix
-
-    ../common/users/chasinglogic.nix
   ];
 
   nixpkgs = {
