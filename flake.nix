@@ -66,6 +66,13 @@
           ./hosts/raza
         ];
       };
+
+      "rocinante" = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/rocinante
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
