@@ -25,8 +25,10 @@ apply host="" user="":
         sudo nixos-rebuild switch --flake ".#$HOST"
     fi
 
-    echo "Doing home-manager switch."
-    home-manager switch --flake ".#$USERNAME@$HOST"
+    if [ -x $(which home-manager 2>/dev/null) ]; then
+        echo "Detected home-manager, doing a rebuild."
+        home-manager switch --flake ".#$USERNAME@$HOST"
+    fi 
 
 test host:
     #!/usr/bin/env bash

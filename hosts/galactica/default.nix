@@ -21,6 +21,8 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
+    ../common/base.nix
+
     ../common/users/chasinglogic.nix
     ../common/purposes/virt-host.nix
     ../common/purposes/tailnet.nix
@@ -53,30 +55,7 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Opinionated: disable global registry
-      flake-registry = "";
-      # Workaround for https://github.com/NixOS/nix/issues/9574
-      nix-path = config.nix.nixPath;
-    };
-    # Opinionated: disable channels
-    channel.enable = false;
-
-    # Opinionated: make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # Use lts kernel.
-  boot.kernelPackages = pkgs.linuxKernel.packageAliases.linux_default;
+  boot.kernelPackages = pkgs.linuxKernel.packageAliases.linux_latest;
 
   networking.hostName = "galactica";
   networking.networkmanager.enable = true;
@@ -96,7 +75,6 @@
 
   environment.systemPackages = with pkgs; [
     wl-clipboard
-    unzip
   ];
 
   services.pipewire = {
@@ -107,31 +85,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    # Add any missing dynamic libraries for unpackaged programs
-    # here, NOT in environment.systemPackages
-  ];
-
+  # Install firefox via home-manager
   programs.firefox.enable = false;
-
-  services.openssh = {
-    enable = false;
-    settings = {
-      # Opinionated: forbid root login through SSH.
-      PermitRootLogin = "no";
-      # Opinionated: use keys only.
-      # Remove if you want to SSH using passwords
-      PasswordAuthentication = false;
-    };
-  };
-
-  # Trying out the podman lifestyle for now.
-  # virtualisation.docker.enable = true;
-  virtualisation.podman = {
-    enable = true;
-    dockerSocket.enable = true;
-  };
+  services.openssh.enable = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
