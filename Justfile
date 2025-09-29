@@ -39,3 +39,15 @@ test host:
     echo "Machine can be accessed with:"
     echo "    ssh -p 2221 localhost"
     $script
+
+deploy host ip="":
+    #!/usr/bin/env bash
+    hostname="$USER@{{host}}.beefalo-drum.ts.net"
+    if [ -n "{{ip}}" ]; then
+        hostname="{{ip}}"
+    fi
+
+    nixos-rebuild switch --flake .#{{host}} \
+        --build-host "$hostname" \
+        --target-host "$hostname" \
+        --sudo
