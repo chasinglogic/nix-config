@@ -26,6 +26,8 @@
 
   environment.systemPackages = with pkgs; [
     unzip
+    neovim
+    zenith
   ];
 
   nix = let
