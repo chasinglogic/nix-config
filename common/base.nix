@@ -30,6 +30,7 @@
     zenith
     git
     dig
+    net-tools
   ];
 
   nix = let
