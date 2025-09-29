@@ -58,12 +58,12 @@
         modules = [
           ./hosts/galactica
 
-          ./hosts/common/base.nix
+          ./common/base.nix
 
-          ./hosts/common/users/chasinglogic.nix
-          ./hosts/common/purposes/virt-host.nix
-          ./hosts/common/purposes/tailnet.nix
-          ./hosts/common/purposes/gaming.nix
+          ./common/users/chasinglogic.nix
+          ./common/purposes/virt-host.nix
+          ./common/purposes/tailnet.nix
+          ./common/purposes/gaming.nix
         ];
       };
 
@@ -72,13 +72,13 @@
         modules = [
           ./hosts/raza
 
-          ./hosts/common/base.nix
+          ./common/base.nix
 
-          ./hosts/common/purposes/virt-host.nix
-          ./hosts/common/purposes/tailnet.nix
-          ./hosts/common/purposes/server.nix
+          ./common/purposes/virt-host.nix
+          ./common/purposes/tailnet.nix
+          ./common/purposes/server.nix
 
-          ./hosts/common/users/chasinglogic.nix
+          ./common/users/chasinglogic.nix
         ];
       };
 
@@ -87,13 +87,13 @@
         modules = [
           ./hosts/rocinante
 
-          ./hosts/common/base.nix
+          ./common/base.nix
 
-          ./hosts/common/purposes/virt-host.nix
-          ./hosts/common/purposes/tailnet.nix
-          ./hosts/common/purposes/server.nix
+          ./common/purposes/virt-host.nix
+          ./common/purposes/tailnet.nix
+          ./common/purposes/server.nix
 
-          ./hosts/common/users/chasinglogic.nix
+          ./common/users/chasinglogic.nix
         ];
       };
     };
