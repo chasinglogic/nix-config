@@ -94,7 +94,7 @@
     elixir
     rustc
     cargo
-    clang
+    gcc
 
     # Python Stuff
     python3
