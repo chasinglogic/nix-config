@@ -1,6 +1,9 @@
 {...}: {
   services.pihole-ftl = {
     enable = true;
+    settings = {
+      dns.upstreams = ["1.1.1.1#53"  "8.8.8.8#53"];
+    };
   };
 
   services.pihole-web = {
