@@ -18,10 +18,8 @@
   ];
 
   # Trying out the podman lifestyle for now.
-  # virtualisation.docker.enable = true;
   virtualisation.podman = {
     enable = true;
-    dockerSocket.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

@@ -68,6 +68,7 @@
 
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    docker-compose
   ];
 
   services.pipewire = {
@@ -81,6 +82,11 @@
   # Install firefox via home-manager
   programs.firefox.enable = false;
   services.openssh.enable = false;
+
+  virtualisation.docker = {
+    enable = true;
+    autoPrune.enable = true;
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
