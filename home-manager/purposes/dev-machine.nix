@@ -47,6 +47,7 @@
 
     # Kubernetes
     kubectl
+    kubebuilder
     k9s
     # Not supported on M series Macs atm and I don't really use it so commented out for
     # now
