@@ -80,6 +80,7 @@
     goreleaser
     golangci-lint
 
+    gnumake
     just
     yq
     grpcurl
