@@ -86,7 +86,7 @@
     grpcurl
     zenith
     hwatch
-    zellij
+    tmux
     gh
     act
     git-filter-repo
