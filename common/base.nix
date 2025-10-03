@@ -26,6 +26,7 @@
     unzip
     neovim
     zenith
+    htop
     git
     dig
     net-tools
