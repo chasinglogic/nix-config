@@ -65,6 +65,7 @@
   services.flatpak.enable = true;
   services.packagekit.enable = true;
   services.fwupd.enable = true;
+  xdg.portal.enable = true;
 
   environment.systemPackages = with pkgs; [
     wl-clipboard
