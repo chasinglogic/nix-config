@@ -12,7 +12,7 @@ function t
 
     end
 
-    if test -n $TMUX
+    if test -n "$TMUX"
         tmux switch-client -t $session_name
     else
         tmux attach-session -t $session_name
